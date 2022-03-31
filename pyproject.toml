@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "django-benkyou"
+version = "0.1.0"
+description = ""
+authors = ["XERSUY <dev.luyoes20@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^4.0.3"
+django-ninja = "^0.17.0"
+PyJWT = "^2.3.0"
+virtualenv = "^20.14.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
