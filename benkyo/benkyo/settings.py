@@ -9,12 +9,20 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv(verbose=True)
+
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+print('TELEGRAM_TOKEN : ', TELEGRAM_TOKEN)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -41,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-
 ]
 
 MIDDLEWARE = [

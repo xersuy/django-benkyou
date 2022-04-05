@@ -1,0 +1,90 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[python]": {
+      "editor.rulers": [100],
+      "editor.tabSize": 4
+    },
+    "terminal.integrated.fontFamily": "\"Inconsolata for Powerline\"",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Darcula Theme from IntelliJ",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+      // "source.fixAll.sortJSON": true
+    },
+
+    "highlight-matching-tag.styles": {
+      "opening": {
+        "left": {
+          "underline": "red"
+          // "borderWidth": "0 0 0 10px",
+          // "borderStyle": "dotted",
+          // "borderColor": "red",
+          // "borderRadius": "5px"
+        },
+        "right": {
+          "surround": "#155FFA"
+        },
+        "name": {
+          "highlight": "rgba(180, 20, 80, 0.4)"
+        }
+      },
+      "closing": {
+        "full": {
+          "custom": {
+            "dark": {
+              "borderWidth": "0 0 1px 0",
+              "borderColor": "white",
+              "borderStyle": "solid",
+              "borderRadius": "4px",
+              "right": "10px"
+            },
+            "light": {
+              "borderWidth": "0 0 1px 0",
+              "borderColor": "brown",
+              "borderStyle": "solid",
+              "borderRadius": "4px",
+              "right": "10px"
+            }
+          }
+        }
+      }
+    },
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "gitlens.advanced.messages": {
+      "suppressGitMissingWarning": true
+    },
+    "vscode-edge-devtools.mirrorEdits": true,
+    "workbench.editor.wrapTabs": true,
+    // "workbench.editor.showTabs": false
+    "workbench.editor.enablePreview": false,
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.startupEditor": "none",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": false,
+      "plaintext": false,
+      "markdown": false
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "CoenraadS.bracket-pair-colorizer-2",
+      "ms-python.vscode-pylance",
+      "ms-python.python",
+      "esbenp.prettier-vscode",
+      "IronGeek.vscode-env"
+    ]
+  }
+}

@@ -1,4 +1,10 @@
-from ninja import Schema
+from ninja import Schema, Field
+
+
+class UserSchema(Schema):
+    id: int
+    first_name: str
+    last_name: str
 
 
 class LoginSchema(Schema):
