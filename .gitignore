@@ -92,6 +92,8 @@ celerybeat-schedule
 
 # Environments
 # env
+*/.env
+**/.env
 .env
 .venv
 env/
@@ -115,5 +117,3 @@ venv.bak/
 
 # End of https://www.gitignore.io/api/python,django
 
-
-출처: https://the-illusionist.me/24 [The Illusionist]
