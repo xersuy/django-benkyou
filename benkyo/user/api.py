@@ -1,5 +1,6 @@
 from ninja import Router
 from .schema import *
+from common.db_instance import db_instance
 router = Router()
 
 

@@ -11,18 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
 import os
-from dotenv import load_dotenv
-
-load_dotenv(verbose=True)
-
-
-TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
-
+from urllib.parse import quote
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print('TELEGRAM_TOKEN : ', TELEGRAM_TOKEN)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -85,10 +78,18 @@ WSGI_APPLICATION = 'benkyo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': DB_PASSWORD,
     }
 }
 
