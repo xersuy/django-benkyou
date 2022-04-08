@@ -23,28 +23,35 @@ Django , SQLAlchemy를 이용해 restful API server 세팅
 .env.template 형태처럼 docker postgreSQL 정보를 입력
 
 ```
-DB_ENGINE = django.db.backends.postgresql
-DB_HOST = 127.0.0.1
-DB_PORT = 5432
-DB_NAME = database name
-DB_USER = database user name
-DB_PASSWORD = data base user password
-
+    DB_ENGINE = django.db.backends.postgresql
+    DB_HOST = 127.0.0.1
+    DB_PORT = 5432
+    DB_NAME = database name
+    DB_USER = database user name
+    DB_PASSWORD = data base user password
 ```
 
 ### 테이블 모델 정의
 
-benkyou/inspact_db_models.py 파일 내부에 전체 테이블의 모델을 정의 되어있다.
+django inspactdb를 이용하여 각 테이블의 모델을 가져와 전체 테이블의 모델 정의를 benkyou/inspact_db_models.py 파일을 만들었다.
+
+하지만 현재 SQLAlchemy ORM을 사용할 예정이라서 django 모델을 SQLAlchemy 형태의 모델을 정의할 예정이다.
+
 또 새롭게 다시 정의를 하고 싶다면 아래의 명령어를 이용
 
+SQLAlchemy 타입 지정 관련 문서
+**[type_basics](https://docs.sqlalchemy.org/en/14/core/type_basics.html)**
+
+**[quickstart](https://docs.sqlalchemy.org/en/14/orm/quickstart.html)**
+
 ```
-$ python manage.py inspectdb > models.py
+    $ python manage.py inspectdb > models.py
 ```
 
 ### 실행
 
 ```
-$ poetry shell
-$ cd benkyo
-$ python manage.py runserver
+    $ poetry shell
+    $ cd benkyo
+    $ python manage.py runserver
 ```
