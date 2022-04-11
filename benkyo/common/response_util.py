@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 
 
-def JsonSuccess(data, dataType='data', msg='success'):
+def JsonSuccess(data, dataType='datas', msg='success'):
     key = dataType
     return JsonResponse({
         "result": {

@@ -10,3 +10,7 @@ class CustomerService:
 
     def customer_all(self):
         return self.session.query(Customer).all()
+
+    def search_customer(self):
+        return []
+        # self.session.query(Customer).all()
