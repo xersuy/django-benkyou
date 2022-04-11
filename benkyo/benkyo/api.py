@@ -15,7 +15,7 @@ class JSONRenderer (BaseRenderer):
 
     media_type = 'application/json'
 
-    def render(self, request, data, *, response_status):
+    def render(self, request, data, *, resonse_status):
         return simplejson.dumps(data)
 
     # def render(self, request, data, *, response_status):

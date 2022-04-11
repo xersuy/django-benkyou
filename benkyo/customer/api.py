@@ -1,63 +1,44 @@
 from unittest import result
+
 from ninja import Router
 from .schema import *
 import pandas as pd
+import pendulum
 from common.db_instance import db_engine, session
 from .services import CustomerService
-
+from common.response_util import JsonSuccess, JsonError
 router = Router()
 
 
 @router.get('/get_cutomer_all/',
-            # response=CustomerAll,
-            description="Creates an order and updates stock",
+            response=CustomerAll,
+            description="유저 전체 목록 조회",
             tags=['customer all data'])
-#              query = db_engine.execute('select * from customer')
-# print(v)
-# for v in query:
-#     print(v)
+# 유저의 전체 목록을 불러오는 API              query = db_engine.execute('select * from customer')
 def get_customer_all(request):
-
     all_customer = CustomerService(db_engine, session).customer_all()
-
     if all_customer:
         customer_dict = []
-
+        # pandas dataframe 을 이용해도 좋을 듯
         for customer in all_customer:
             _customer = {
                 'customer_id': customer.customer_id,
                 'first_name': customer.first_name,
                 'last_name': customer.last_name,
-                # 'address_id': customer.address_id,
-                'create_date': customer.create_date,
+                'address_id': customer.address_id,
+                'create_date': customer.create_date.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z",
                 'active': customer.active,
                 'email': customer.email,
                 'store_id': customer.store_id,
                 'activebool': customer.activebool,
-                'last_update': customer.last_update,
+                'last_update': customer.last_update.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
             }
-            # print(_customer)
 
             customer_dict.append(_customer)
 
-        cusotomers_df = pd.DataFrame(all_customer)
-        print(cusotomers_df)
-        return {
-            'result': cusotomers_df
-        }
+        count = len(customer_dict)
+
+        return JsonSuccess(data={'count': count, 'data': customer_dict}, dataType='datas')
 
     else:
-        print('------------------------------->')
-    # print(all_customer)
-    # print(cusotomers_df)
-    # return all_customer
-    # print('[result]', all_customer)
-    # result = [{"name": v.first_name, "last_name": v.last_name,
-    #            "email": v.email, "address": v.address} for v in all_customer]
-
-    # for i in result:
-    # print(i)
-
-    # return Response({
-    #     'result': all_customer
-    # })
+        return JsonError(msg='error')
