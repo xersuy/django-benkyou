@@ -3,6 +3,7 @@ import pendulum
 import json
 import simplejson
 import numpy
+import orjson
 import datetime
 # import orjson
 from user.api import router as user_router

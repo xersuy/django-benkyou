@@ -19,6 +19,7 @@ simplejson = "^3.17.6"
 pendulum = "^2.1.2"
 numpy = "^1.22.3"
 DateTime = "^4.4"
+orjson = "^3.6.7"
 
 [tool.poetry.dev-dependencies]
 

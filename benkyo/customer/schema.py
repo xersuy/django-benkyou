@@ -19,3 +19,7 @@ class Customer(Schema):
 class CustomerAll(Schema):
     count: int
     data: List[Customer]
+
+
+class CustomerFirst(Schema):
+    data: List[Customer]
